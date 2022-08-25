@@ -1,59 +1,16 @@
-import { Navigate } from "react-router-dom";
-
 import Auth from "~/features/Auth";
-import SignIn from "~/features/Auth/pages/SignIn";
-import SignUp from "~/features/Auth/pages/SignUp";
 
-import MainLayout, { AuthLayout } from "~/layouts";
-
-import PrivateRoute from "./PrivateRoute";
+import authRoutes from "./authRoutes";
 
 const routes = [
   {
     path: "/",
-    element: <Navigate to="/shopping" replace={true} />,
-  },
-  {
-    path: "/shopping",
-    element: <MainLayout />,
-    children: [
-      {
-        path: "",
-        element: <p>Home Page</p>,
-      },
-    ],
-  },
-  {
-    path: "/me",
-    element: <MainLayout />,
-    children: [
-      {
-        path: "",
-        element: (
-          <PrivateRoute>
-            <p>My information</p>
-          </PrivateRoute>
-        ),
-      },
-    ],
+    element: <p>Home Page</p>,
   },
   {
     path: "/auth",
-    element: (
-      <Auth>
-        <AuthLayout />
-      </Auth>
-    ),
-    children: [
-      {
-        path: "",
-        element: <SignIn />,
-      },
-      {
-        path: "signup",
-        element: <SignUp />,
-      },
-    ],
+    element: <Auth />,
+    children: authRoutes,
   },
   {
     path: "*",
