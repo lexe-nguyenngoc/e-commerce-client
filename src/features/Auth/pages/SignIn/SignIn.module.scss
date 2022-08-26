@@ -1,0 +1,72 @@
+.wrapper{
+  width:100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e5e5e5;
+}
+.login {
+    width: var(--login-width);
+    height: 100%;
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    font-family: "Lexend Deca", sans-serif;
+    
+    h2 {
+      font-size: 6.4rem;
+      line-height: 80px;
+    }
+    h3 {
+      font-size: 1.6rem;
+      line-height: 20px;
+    }
+    
+    
+    &__tool {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: space-between;
+      width: 300px;
+      position: relative;
+    }
+    &__bg{
+      position: absolute;
+      bottom: 0;
+      height: 10%;
+      width: 100%;
+    }
+   
+  }
+  .input{
+    display: flex;
+    flex-flow: column wrap;
+    
+    span{
+      color: red;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+  }
+  .toolText {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.4rem;
+    line-height: 17px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .text {
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    color: #224957;
+  }
+  .flex {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
