@@ -17,13 +17,15 @@ const cx = classNames.bind(styles);
 const SigninSchema = yup.object().shape({
   email: yup
     .string()
-    .email("Please enter your emailPlease enter a valid email address.")
-    .required("Please enter your email"),
+    .email("Please enter a valid email address.")
+    .required("Please enter your email."),
 
-  password: yup.string().min(8).max(32).required("Please enter your password"),
+  password: yup.string().min(8).max(32).required("Please enter your password."),
 });
 
 const SignIn = () => {
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -31,7 +33,9 @@ const SignIn = () => {
   } = useForm({
     resolver: yupResolver(SigninSchema),
   });
-  const onSubmitHandler = (data) => console.log(data);
+  const onSubmitHandler = (data) => {
+    navigate("/")
+  };
 
   return (
     <div className={cx("wrapper")}>
@@ -42,11 +46,11 @@ const SignIn = () => {
         </h3>
         <div className={cx("input")}>
           <Input name="email" placeholder="email" register={register} />
-          {errors.email && <span>{errors.email?.message}</span>}
+          {errors.email && <span className={cx("input__hint")}>{errors.email?.message}</span>}
         </div>
         <div className={cx("input")}>
           <Input name="password" type="password" placeholder="password" register={register} />
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && <span className={cx("input__hint")}>{errors.password.message}</span>}
         </div>
         <div className={cx("login__tool")}>
           <div className={cx("flex")}>

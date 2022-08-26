@@ -1,0 +1,1 @@
+export const BASE_API_ROUTE = "https://ecommerce-server-express.herokuapp.com/api"

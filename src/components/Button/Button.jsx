@@ -12,7 +12,7 @@ function Button({className, onClick, type = "submit", children, ...rest}) {
    
   return (
     <span className={cx("wrapper")}>
-        <button className={className} onCLick={onClick} {...rest}>{children}</button>
+        <button className={className} onClick={onClick} {...rest}>{children}</button>
     </span>
   )
 }

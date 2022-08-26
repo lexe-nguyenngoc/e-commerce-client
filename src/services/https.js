@@ -1,7 +1,7 @@
 import axios from "axios";
-
+import { BASE_API_ROUTE } from './../constants/index';
 const instance = axios.create({
-  baseURL: "https://ecommerce-server-express.herokuapp.com/api",
+  baseURL: BASE_API_ROUTE,
   timeout: 5000,
   headers: {
     "Content-Type": "application/json; charset=utf-8",
