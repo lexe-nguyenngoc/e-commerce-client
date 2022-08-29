@@ -26,7 +26,11 @@
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "eject": "react-app-rewired eject",
+    "lint": "eslint --ext js,jsx src/",
+    "lint:fix": "eslint --fix --ext js,jsx src/",
+    "prettier": "prettier --check \"src/**/(**.jsx|*.js|*.scss|*.css)\"",
+    "prettier:fix": "prettier --write \"src/**/(**.jsx|*.js|*.scss|*.css)\""
   },
   "eslintConfig": {
     "extends": [
@@ -45,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.1",
+    "prettier": "^2.7.1"
   }
 }

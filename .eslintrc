@@ -1,0 +1,33 @@
+{
+  "extends": [
+    "react-app",
+    "prettier",
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": ["react", "prettier"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": [
+      "warn",
+      {
+        "singleQuote": true,
+        "jsxSingleQuote": true,
+        "arrowParens": "always",
+        "semi": true,
+        "bracketSameLine": false
+      }
+    ],
+    "arrow-body-style": ["off", "always"],
+    "no-unused-vars": "error",
+    "no-lonely-if": "error",
+    "no-dupe-keys": "error",
+    "no-console": "warn",
+    "react/react-in-jsx-scope": "off",
+    "react/display-name": "off"
+  }
+}

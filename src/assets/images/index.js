@@ -1,4 +1,4 @@
-import notAvailable from "./Image_not_available.png";
+import notAvailable from './Image_not_available.png';
 
 const images = {
   notAvailable,

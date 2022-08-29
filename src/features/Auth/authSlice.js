@@ -1,6 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
-export const ROOT_STATE_NAME = "auth";
+export const ROOT_STATE_NAME = 'auth';
 const initialState = {};
 
 const authSlice = createSlice({
@@ -9,5 +9,6 @@ const authSlice = createSlice({
 });
 
 export const authSelector = (state) => state[ROOT_STATE_NAME];
+// eslint-disable-next-line no-empty-pattern
 export const {} = authSlice.actions;
 export default authSlice.reducer;

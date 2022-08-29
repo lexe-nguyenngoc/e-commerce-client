@@ -1,5 +1,4 @@
-import { Outlet } from "react-router-dom";
-import { https } from "~/services";
+import { Outlet } from 'react-router-dom';
 
 const AuthLayout = () => {
   return <Outlet />;

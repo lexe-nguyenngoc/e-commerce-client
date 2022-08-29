@@ -1,1 +1,1 @@
-export { default as https } from "./https";
+export { default as https } from './https';

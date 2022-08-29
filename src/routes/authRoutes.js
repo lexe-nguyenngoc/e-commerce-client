@@ -1,5 +1,5 @@
-import SignIn from "~/features/Auth/pages/SignIn";
-import SignUp from "~/features/Auth/pages/SignUp";
+import SignIn from '~/features/Auth/pages/SignIn';
+import SignUp from '~/features/Auth/pages/SignUp';
 
 const authRoutes = [
   {
@@ -7,7 +7,7 @@ const authRoutes = [
     element: <SignIn />,
   },
   {
-    path: "signup",
+    path: 'signup',
     element: <SignUp />,
   },
 ];
