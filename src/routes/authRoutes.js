@@ -1,14 +1,23 @@
 import SignIn from "~/features/Auth/pages/SignIn";
 import SignUp from "~/features/Auth/pages/SignUp";
+import { AuthLayout } from "~/layouts";
 
 const authRoutes = [
   {
     index: true,
-    element: <SignIn />,
+    element: (
+      <AuthLayout>
+        <SignIn />
+      </AuthLayout>
+    ),
   },
   {
     path: "signup",
-    element: <SignUp />,
+    element: (
+      <AuthLayout>
+        <SignUp />
+      </AuthLayout>
+    ),
   },
 ];
 

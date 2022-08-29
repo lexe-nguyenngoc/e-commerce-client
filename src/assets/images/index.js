@@ -1,13 +1,18 @@
 import notAvailable from "./Image_not_available.png";
-import signInBackground from "./sign_in_background.png"
-import logo from "./logo.png"
-import signUpBackground from "./sign_up_background.png"
+import signInBackground from "./sign_in_background.png";
+import signUpBackground from "./sign_up_background.png";
+
+const facebook =
+  "https://hrcdn.net/fcore/assets/facebook-colored-af4249157d.svg";
+
+const google = "https://hrcdn.net/fcore/assets/google-colored-20b8216731.svg";
 
 const images = {
-  logo,
   notAvailable,
+  google,
+  facebook,
   signInBackground,
-  signUpBackground
+  signUpBackground,
 };
 
 export default images;

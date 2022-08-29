@@ -1,5 +1,5 @@
 import axios from "axios";
-import { BASE_API_ROUTE } from './../constants/index';
+import { BASE_API_ROUTE } from "./../constants/index";
 const instance = axios.create({
   baseURL: BASE_API_ROUTE,
   timeout: 5000,
