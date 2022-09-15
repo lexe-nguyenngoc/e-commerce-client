@@ -10,12 +10,12 @@ import { status } from '~/constants';
 
 import { InputField } from '~/components/Form';
 import Button from '~/components/Button';
+import Image from '~/components/Image';
+import images from '~/assets/images';
 
 import { authSelector, login } from '../../authSlice';
 
 import styles from './SignIn.module.scss';
-import Image from '~/components/Image';
-import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
@@ -45,60 +45,61 @@ const SignIn = () => {
   };
 
   return (
-    <div className={cx('wrapper')}>
-      <section className={cx('hero')}>
-        <h2>
-          Sign up and
-          <p>Join top 1 E-commerce</p>
-        </h2>
-        <p>
-          Lorem ipsum dolor.
-          <span> Beatae eaque</span>
-        </p>
-      </section>
-      <form className={cx('form')} onSubmit={handleSubmit(handleLogin)}>
-        <InputField
-          required
-          id='email'
-          label='Email'
-          placeholder='abcxxx@gmail.com'
-          error={errors.email?.message}
-          register={register('email')}
-        />
+    <form className={cx('form')} onSubmit={handleSubmit(handleLogin)}>
+      <h2 className={cx('form__heading')}>Sign In</h2>
+      <InputField
+        required
+        id='email'
+        label='Email'
+        placeholder='abcxxx@gmail.com'
+        error={errors.email?.message}
+        register={register('email')}
+      />
 
-        <InputField
-          required
-          id='password'
-          label='Password'
-          placeholder='xxxxxxxx'
-          type='password'
-          error={errors.password?.message}
-          register={register('password')}
-        />
+      <InputField
+        required
+        id='password'
+        label='Password'
+        placeholder='xxxxxxxx'
+        type='password'
+        error={errors.password?.message}
+        register={register('password')}
+      />
 
-        <Button
-          loading={auth.status === status.loading}
-          className={cx('form__create')}
-          type='submit'
-        >
-          Login
-        </Button>
+      <Button
+        loading={auth.status === status.loading}
+        className={cx('form__submit')}
+        type='submit'
+      >
+        Login
+      </Button>
+      <div className={cx('form__question')}>
+        <p>Forgot password?</p>
         <p>
           Don't have an account? <Link to='signup'>Sign up</Link>
         </p>
+      </div>
+      <div className={cx('form__label')}>
+        <div></div>
         <h3>OR</h3>
-        <div className={cx('form__alternative')}>
-          <Button variant='outlined'>
-            <Image src={images.google} />
-            Sign in with Google
-          </Button>
-          <Button variant='outlined'>
-            <Image src={images.facebook} />
-            Sign in with Facebook
-          </Button>
-        </div>
-      </form>
-    </div>
+        <div></div>
+      </div>
+
+      <div className={cx('form__alternative')}>
+        <Button className={cx('alter_btn')} variant='outlined'>
+          <Image src={images.google} />
+          Google
+        </Button>
+        <Button className={cx('alter_btn')} variant='outlined'>
+          <Image src={images.facebook} />
+          Facebook
+        </Button>
+        <Button className={cx('alter_btn')} variant='outlined'>
+          <Image src={images.apple} />
+          Apple
+        </Button>
+      </div>
+    </form>
   );
 };
 

@@ -1,82 +1,79 @@
-.wrapper {
-  background: no-repeat 35% 65%/30%
-    url(./../../../../assets/images/sign_up_background.png);
-
-  padding: 40px 120px;
-  height: calc(100% - 120px);
-
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.hero {
-  height: 150px;
+.form {
+  padding: 73px 60px 93px 60px;
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
 
-  gap: 30px;
+  gap: 13px;
 
-  h2 {
-    font-size: 4.8rem;
-    line-height: 70px;
+  &__heading {
+    color: var(--color-black);
+    font-size: 20px;
+    margin-bottom: 34px;
   }
 
-  p {
-    span {
-      color: #007074;
+  &__question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & > p:first-child {
       cursor: pointer;
+    }
+    p {
+      font-family: var(--lexend-font-family);
+      font-weight: 400;
+      font-size: 1.2rem;
+      letter-spacing: 0.03em;
+
+      color: var(--color-secondary);
+
+      a {
+        color: var(--color-blue-0);
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__label {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    margin: 10px 0 18px 0;
+    h3 {
+      font-size: 1.3rem;
+      text-align: center;
+      padding: 0 18px;
+      color: var(--color-secondary);
+    }
+    div {
+      background-color: rgba(var(--b38, 219, 219, 219), 1);
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 1px;
+      position: relative;
+      top: 0.45em;
+    }
+  }
+
+  &__alternative {
+    display: flex;
+    gap: 5px;
+    img {
+      height: 22px;
+      width: 22px;
+      margin-right: 10px;
     }
   }
 }
 
-.form {
-  p {
-    font-family: var(--lexend-font-family);
-    font-style: normal;
-    font-weight: 400;
-    font-size: 13px;
-    line-height: 27px;
+.forgot__password {
+  text-align: left;
+}
 
-    a {
-      color: var(--color-blue-0);
-      cursor: pointer;
-    }
-  }
+.form__submit {
+  margin: auto;
+}
 
-  h3 {
-    margin: 12px 0px;
-  }
-
-  &__alternative {
-    width: fit-content;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-
-    gap: 12px;
-
-    button {
-      margin: 8px 0px;
-      width: 270px;
-      padding: 12px 24px;
-
-      background: #fff;
-      color: #043133;
-
-      border: 1.4px solid #d2d2d2;
-      border-radius: 5px;
-    }
-
-    img {
-      height: 40px;
-      width: 40px;
-    }
-  }
+.alter_btn {
+  border-radius: 5px;
 }

@@ -1,7 +1,7 @@
 import notAvailable from './Image_not_available.png';
 import signInBackground from './sign_in_background.png';
 import signUpBackground from './sign_up_background.png';
-
+import apple from './apple_logo_black.png';
 const facebook =
   'https://hrcdn.net/fcore/assets/facebook-colored-af4249157d.svg';
 
@@ -11,6 +11,7 @@ const images = {
   notAvailable,
   google,
   facebook,
+  apple,
   signInBackground,
   signUpBackground,
 };

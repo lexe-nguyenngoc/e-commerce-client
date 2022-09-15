@@ -1,0 +1,42 @@
+.wrapper {
+  background: no-repeat 35% 65%/30%
+    url(./../../assets/images/sign_up_background.png);
+
+  padding: 40px 120px;
+  height: 600px;
+  max-height: 600px;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
+
+  .hero {
+    width: 598px;
+    max-width: 598px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 30px;
+
+    h2 {
+      font-size: 4.8rem;
+      line-height: 70px;
+    }
+
+    p {
+      span {
+        color: #007074;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .form {
+    width: 598px;
+    max-width: 598px;
+    height: 100%;
+  }
+}
