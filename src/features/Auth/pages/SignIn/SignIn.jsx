@@ -1,48 +1,52 @@
-import React from "react";
-import { useForm } from "react-hook-form";
-import classNames from "classnames/bind";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { Link, useNavigate } from "react-router-dom";
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import classNames from 'classnames/bind';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-import styles from "./SignIn.module.scss";
+import { status } from '~/constants';
 
-import image from "~/assets/images";
-import Image from "~/components/Image";
-import { Input } from "~/components/Input";
-import { Button } from "~/components/Button";
-import { signIn } from "~/services/auth";
+import { InputField } from '~/components/Form';
+import Button from '~/components/Button';
+
+import { authSelector, login } from '../../authSlice';
+
+import styles from './SignIn.module.scss';
+import Image from '~/components/Image';
+import images from '~/assets/images';
 
 const cx = classNames.bind(styles);
 
-const SigninSchema = yup.object().shape({
+const SignInSchema = yup.object().shape({
   email: yup
     .string()
-    .email("Please enter a valid email address.")
-    .required("Please enter your email."),
+    .email('Please enter a valid email address.')
+    .required('Please enter your email.'),
 
-  password: yup.string().min(8).max(32).required("Please enter your password."),
+  password: yup.string().min(8).max(32).required('Please enter your password.'),
 });
 
 const SignIn = () => {
-  const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(SigninSchema),
+    resolver: yupResolver(SignInSchema),
   });
-  const onSubmitHandler = (data) => {
-    if (signIn(data)) {
-      navigate("/");
-    }
+
+  const { auth } = useSelector(authSelector);
+  const dispatch = useDispatch();
+
+  const handleLogin = (data) => {
+    dispatch(login(data));
   };
 
   return (
-    <div className={cx("wrapper")}>
-      <section className={cx("hero")}>
+    <div className={cx('wrapper')}>
+      <section className={cx('hero')}>
         <h2>
           Sign up and
           <p>Join top 1 E-commerce</p>
@@ -52,50 +56,44 @@ const SignIn = () => {
           <span> Beatae eaque</span>
         </p>
       </section>
-      <form className={cx("form")} onSubmit={handleSubmit(onSubmitHandler)}>
-        <div>
-          <span>Email</span>
-          <Input
-            className={cx("input-text")}
-            name="email"
-            placeholder="email"
-            register={register}
-          />
-          {errors.email && (
-            <p className={cx("input__hint")}>{errors.email?.message}</p>
-          )}
-        </div>
-        <div>
-          <span>Password</span>
-          <Input
-            className={cx("input-text")}
-            name="password"
-            type="password"
-            placeholder="password"
-            register={register}
-          />
-          {errors.password && (
-            <span className={cx("input__hint")}>
-              {errors.password?.message}
-            </span>
-          )}
-        </div>
-        <Button className={cx("form__create")}>Login</Button>
+      <form className={cx('form')} onSubmit={handleSubmit(handleLogin)}>
+        <InputField
+          required
+          id='email'
+          label='Email'
+          placeholder='abcxxx@gmail.com'
+          error={errors.email?.message}
+          register={register('email')}
+        />
+
+        <InputField
+          required
+          id='password'
+          label='Password'
+          placeholder='xxxxxxxx'
+          type='password'
+          error={errors.password?.message}
+          register={register('password')}
+        />
+
+        <Button
+          loading={auth.status === status.loading}
+          className={cx('form__create')}
+          type='submit'
+        >
+          Login
+        </Button>
         <p>
-          Don't have an account? <Link to="signup">Sign up</Link>
+          Don't have an account? <Link to='signup'>Sign up</Link>
         </p>
         <h3>OR</h3>
-        <div className={cx("form__alternative")}>
-          <Button
-            leftIcon={<Image src={image.google} alt="google picture"></Image>}
-          >
+        <div className={cx('form__alternative')}>
+          <Button variant='outlined'>
+            <Image src={images.google} />
             Sign in with Google
           </Button>
-          <Button
-            leftIcon={
-              <Image src={image.facebook} alt="facebook picture"></Image>
-            }
-          >
+          <Button variant='outlined'>
+            <Image src={images.facebook} />
             Sign in with Facebook
           </Button>
         </div>

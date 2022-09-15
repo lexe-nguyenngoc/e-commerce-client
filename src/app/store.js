@@ -1,11 +1,11 @@
-import { configureStore } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
+import { configureStore } from '@reduxjs/toolkit';
+import createSagaMiddleware from 'redux-saga';
 
 import authReducer, {
   ROOT_STATE_NAME as auth,
-} from "~/features/Auth/authSlice";
+} from '~/features/Auth/authSlice';
 
-import rootSaga from "./rootSaga";
+import rootSaga from './rootSaga';
 
 const sagaMiddleware = createSagaMiddleware();
 

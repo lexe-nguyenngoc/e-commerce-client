@@ -1,6 +1,10 @@
-// eslint-disable-next-line require-yield
+import { all } from 'redux-saga/effects';
+
+import authSaga from '~/features/Auth/authSaga';
+
 function* rootSaga() {
-  console.log("root saga");
+  console.log('[SAGA] - ROOT start 💥💥💥');
+  yield all([authSaga()]);
 }
 
 export default rootSaga;

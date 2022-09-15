@@ -1,0 +1,11 @@
+.container {
+  --width: 1492px;
+
+  width: 100%;
+  max-width: calc(var(--width) + 32px);
+  padding: 0 16px;
+
+  &.fluid {
+    max-width: 100%;
+  }
+}

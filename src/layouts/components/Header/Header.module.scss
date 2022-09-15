@@ -1,0 +1,28 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__menu {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+
+    column-gap: 1.6rem;
+
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  &__menu-item {
+    padding: 8px 12px;
+
+    &.active {
+      color: var(--color-blue-0);
+      background-color: rgb(255, 255, 255);
+
+      border-radius: 20px;
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

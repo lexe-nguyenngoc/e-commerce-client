@@ -1,6 +1,8 @@
-import SignIn from "~/features/Auth/pages/SignIn";
-import SignUp from "~/features/Auth/pages/SignUp";
-import { AuthLayout } from "~/layouts";
+import { lazy } from 'react';
+import { AuthLayout } from '~/layouts';
+
+const SignIn = lazy(() => import('~/features/Auth/pages/SignIn'));
+const SignUp = lazy(() => import('~/features/Auth/pages/SignUp'));
 
 const authRoutes = [
   {
@@ -12,7 +14,7 @@ const authRoutes = [
     ),
   },
   {
-    path: "signup",
+    path: 'signup',
     element: (
       <AuthLayout>
         <SignUp />

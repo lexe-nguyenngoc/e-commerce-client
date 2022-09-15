@@ -1,21 +1,24 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
-import { BrowserRouter } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import ReactDOM from 'react-dom/client';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 
-import store from "~/app/store";
+import store from '~/app/store';
 
-import GlobalStyles from "~/components/GlobalStyles";
-import App from "~/App";
+import GlobalStyles from '~/components/GlobalStyles';
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const App = lazy(() => import('~/App'));
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <GlobalStyles>
-        <Provider store={store}>
-          <App />
-        </Provider>
+        <Suspense fallback={<div>Loading</div>}>
+          <Provider store={store}>
+            <App />
+          </Provider>
+        </Suspense>
       </GlobalStyles>
     </BrowserRouter>
   </React.StrictMode>

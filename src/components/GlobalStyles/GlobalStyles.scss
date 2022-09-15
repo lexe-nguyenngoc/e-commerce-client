@@ -1,26 +1,33 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat&display=swap");
-@import "./Reset.scss";
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&family=Montserrat&display=swap');
+@import './Reset.scss';
 
 //font
 :root {
-  --Lexend-font-family: "Lexend Deca", sans-serif;
-  --montserrat-font-family: "Montserrat", sans-serif;
+  --lexend-font-family: 'Lexend Deca', sans-serif;
+  --montserrat-font-family: 'Montserrat', sans-serif;
 
   --fw-light: 300;
   --fw-normal: 400;
   --fw-bold: 500;
   --fw-black: 700;
 
-  // color
+  // themes
+  --color-primary: #224957;
+  --color-text: #4d5959;
 
+  // input
+  --color-placeholder: #838383;
+  --color-input-border: #cccccc;
+
+  // color
   --color-white: #fff;
   --color-black: #000;
   --color-bg-gray: #e5e5e5;
 
-
   --color-border-0: #e8e8e8;
   --color-border-1h: #e4e4e4;
   --color-border-input: #d9d9d9;
+
   --color-red-0: #e92c2c;
   --color-green-0: #00ba34;
   --color-green-1: rgba(0, 186, 52, 0.1);
@@ -53,12 +60,16 @@ body {
 
   font-size: 1.6rem;
   line-height: 1;
-  font-family: var(--font-family);
+  font-family: var(--lexend-font-family);
+
+  color: var(--color-text);
+  overflow: hidden;
 }
 
 input,
 button,
 textarea,
 select {
-  font-family: var(--font-family);
+  font-family: var(--lexend-font-family);
+  outline: none;
 }

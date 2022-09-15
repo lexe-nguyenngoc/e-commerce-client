@@ -1,1 +1,2 @@
-export const BASE_API_ROUTE = "https://ecommerce-server-express.herokuapp.com/api"
+export { default as status } from './status';
+export * as apiRoutes from './apiRoutes';

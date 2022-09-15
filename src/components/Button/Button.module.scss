@@ -1,4 +1,4 @@
-button {
+.btn {
   height: 45px;
   width: 100%;
 
@@ -11,23 +11,32 @@ button {
   align-items: center;
   justify-content: center;
 
-  color: #224957;
-  background: #20df7f;
+  color: var(--color-primary);
+  background: transparent;
 
   border: none;
   border-radius: 10px;
 
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+  transition: opacity ease-in-out 0.25s;
 
   &:hover {
     opacity: 0.7;
   }
-}
-.icon + .heading,
-.heading + .icon {
-  margin-left: 8px;
-}
-.heading {
-  width: 200px;
+
+  &.contained {
+    &.primary {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
+
+  &.outlined {
+    &.primary {
+      color: var(--color-primary);
+      background-color: var(--color-white);
+      border: 1px solid var(--color-primary);
+    }
+  }
 }

@@ -1,6 +1,6 @@
-import { useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
-import { useAuth } from "./hooks";
+import { useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useAuth } from './hooks';
 
 const Auth = () => {
   const { auth } = useAuth();
@@ -9,7 +9,7 @@ const Auth = () => {
   useEffect(() => {
     if (!auth.token) return;
 
-    navigate("/");
+    navigate('/');
   }, [auth, navigate]);
 
   return <Outlet />;

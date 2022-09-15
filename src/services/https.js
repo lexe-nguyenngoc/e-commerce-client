@@ -1,10 +1,9 @@
-import axios from "axios";
-import { BASE_API_ROUTE } from "./../constants/index";
+import axios from 'axios';
 const instance = axios.create({
-  baseURL: BASE_API_ROUTE,
+  baseURL: process.env.REACT_APP_BASE_URL,
   timeout: 5000,
   headers: {
-    "Content-Type": "application/json; charset=utf-8",
+    'Content-Type': 'application/json; charset=utf-8',
   },
 });
 
@@ -35,15 +34,15 @@ axios.interceptors.response.use(
 
 const GET = (url, params) => {
   return instance({
-    method: "get",
+    method: 'get',
     url,
     params,
   });
 };
 
-const POST = (url, params, data) => {
+const POST = ({ url, params, data }) => {
   return instance({
-    method: "post",
+    method: 'post',
     url,
     params,
     data,
@@ -52,7 +51,7 @@ const POST = (url, params, data) => {
 
 const PUT = (url, params, data) => {
   return instance({
-    method: "put",
+    method: 'put',
     url,
     params,
     data,
@@ -61,7 +60,7 @@ const PUT = (url, params, data) => {
 
 const PATCH = (url, params, data) => {
   return instance({
-    method: "patch",
+    method: 'patch',
     url,
     params,
     data,
@@ -70,7 +69,7 @@ const PATCH = (url, params, data) => {
 
 const DELETE = (url, params, data) => {
   return instance({
-    method: "delete",
+    method: 'delete',
     url,
     params,
     data,

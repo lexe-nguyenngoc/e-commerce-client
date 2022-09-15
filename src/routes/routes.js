@@ -1,19 +1,21 @@
-import Auth from "~/features/Auth";
+import { lazy } from 'react';
 
-import authRoutes from "./authRoutes";
+import authRoutes from './authRoutes';
+
+const Auth = lazy(() => import('~/features/Auth'));
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     element: <p>Home Page</p>,
   },
   {
-    path: "/auth",
+    path: '/auth',
     element: <Auth />,
     children: authRoutes,
   },
   {
-    path: "*",
+    path: '*',
     element: <>404! Page Not Found</>,
   },
 ];
