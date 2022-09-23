@@ -1,4 +1,12 @@
-.wrapper {
+.site-header {
+  &:hover .topbar {
+    background-color: var(--color-bg-grey);
+  }
+  &:hover .header {
+    background-color: var(--color-bg-yellow);
+  }
+}
+.body-wrapper {
   background: no-repeat 35% 65%/30%
     url(./../../assets/images/sign_up_background.png);
 
@@ -11,7 +19,7 @@
   justify-content: space-between;
 
   .hero {
-    width: 598px;
+    flex: 1;
     max-width: 598px;
     height: 100%;
     display: flex;
@@ -35,7 +43,7 @@
   }
 
   .form {
-    width: 598px;
+    flex: 1;
     max-width: 598px;
     height: 100%;
   }

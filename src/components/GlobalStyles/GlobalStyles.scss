@@ -3,8 +3,7 @@
 
 //font
 :root {
-  --lexend-font-family: 'Lexend Deca', sans-serif;
-  --montserrat-font-family: 'Montserrat', sans-serif;
+  --primary-font-family: 'Pangea', sans-serif;
 
   --fw-light: 300;
   --fw-normal: 400;
@@ -23,24 +22,15 @@
   --color-white: #fff;
   --color-black: #000;
   --color-bg-gray: #e5e5e5;
+  --color-bg-yellow: #f9f86c;
+  --color-bg-grey: #d9d9d9;
 
   --color-border-0: #e8e8e8;
-  --color-border-1h: #e4e4e4;
   --color-border-input: #d9d9d9;
 
   --color-red-0: #e92c2c;
-  --color-green-0: #00ba34;
-  --color-green-1: rgba(0, 186, 52, 0.1);
+  --color-red-1: rgb(255, 49, 2);
   --color-blue-0: #0085ff;
-  --color-blue-1: #224957;
-  --color-orange-0: #f98600;
-  --color-orange-1: rgba(255, 150, 27, 0.1);
-  --color-text-light: #969696;
-  --color-text-gray: #585757;
-  --color-text: #1c1c1c;
-
-  --bs-default: 0px 1px 3px rgba(0, 0, 0, 0.1), 0px 2px 1px rgba(0, 0, 0, 0.06),
-    0px 1px 1px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -60,7 +50,7 @@ body {
 
   font-size: 1.6rem;
   line-height: 1;
-  font-family: var(--lexend-font-family);
+  font-family: var(--primary-font-family);
 
   color: var(--color-text);
   overflow: hidden;
@@ -70,6 +60,19 @@ input,
 button,
 textarea,
 select {
-  font-family: var(--lexend-font-family);
+  font-family: var(--primary-font-family);
   outline: none;
+}
+
+// Fonts emmbeded
+@font-face {
+  font-family: Pangea;
+  src: url('/assets/fonts/Pangea-SemiBold.otf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Pangea;
+  src: url('/assets/fonts/Pangea-Regular.otf');
+  font-weight: 600;
 }
