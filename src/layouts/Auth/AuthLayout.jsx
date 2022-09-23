@@ -4,14 +4,20 @@ import classNames from 'classnames/bind';
 import styles from './AuthLayout.module.scss';
 
 import Header from '../components/Header';
+import Topbar from '../components/Topbar';
 
 const cx = classNames.bind(styles);
 
 const AuthLayout = ({ children }) => {
+  const topBarTittle = 'Enter CMVOU30N for a 30% discount';
+
   return (
-    <div className={cx('auth-layout')}>
-      <Header />
-      <div className={cx('wrapper')}>
+    <>
+      <header className={cx('site-header')}>
+        <Topbar className={cx('topbar')} tittle={topBarTittle} />
+        <Header className={cx('header')} />
+      </header>
+      <div className={cx('body-wrapper')}>
         <section className={cx('hero')}>
           <h2>
             Sign up and
@@ -24,7 +30,7 @@ const AuthLayout = ({ children }) => {
         </section>
         <section className={cx('form')}>{children}</section>
       </div>
-    </div>
+    </>
   );
 };
 
