@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 
 const useClickOutside = (handleOnClick) => {
   let domNode = useRef();
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (domNode.current && !domNode.current.contains(event.target)) {
@@ -12,8 +13,7 @@ const useClickOutside = (handleOnClick) => {
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  });
-
+  }, []);
   return domNode;
 };
 

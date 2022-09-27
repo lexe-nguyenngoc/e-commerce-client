@@ -1,5 +1,5 @@
 import classNames from 'classnames/bind';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { uid } from '~/utils';
 
@@ -9,6 +9,9 @@ import { apiRoutes } from '~/constants';
 import useClickOutside from '~/hooks/useClickOutside';
 
 import styles from './Header.module.scss';
+import Tippy from '@tippyjs/react';
+import PopperWrapper from '~/components/PopperWrapper/PopperWrapper';
+import SearchItem from '~/components/SearchItem/SearchItem';
 
 const cx = classNames.bind(styles);
 
@@ -41,18 +44,58 @@ const headerMenu = [
   },
 ];
 
+const searchResultsA = [
+  {
+    id: uid(),
+    imageSrc:
+      'https://media.coolmate.me/cdn-cgi/image/width=300,height=442,quality=80/uploads/August2022/DSC05015-copy-1_43.jpg',
+    imageAlt: 'item',
+    tittle: 'Áo Polo thể thao nam RecycV1 ',
+    priceTag: '3014.000đ',
+    saleTag: '50.000đ',
+  },
+  {
+    id: uid(),
+    imageSrc:
+      'https://media.coolmate.me/cdn-cgi/image/width=300,height=442,quality=80/uploads/August2022/densau.jpg',
+    imageAlt: 'item',
+    tittle: 'ếu đã từng mua hàng trên Websit',
+    priceTag: '34.000đ',
+    saleTag: '150.000đ',
+  },
+  {
+    id: uid(),
+    imageSrc:
+      'https://media.coolmate.me/cdn-cgi/image/width=300,height=442,quality=80/uploads/May2022/DSC01325_copy.jpg',
+    imageAlt: 'item',
+    tittle: 'y, bạn có thể dùng tính nă',
+    priceTag: '214.000đ',
+    saleTag: '140.000đ',
+  },
+];
+const searchResultsB = [];
+
 const Header = ({ className }) => {
-  const [isSearchOpen, setIsSearchOpen] = useState(true);
+  const [isSearchMode, setIsSearchMode] = useState(true);
+  const [searchValue, setSearchValue] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   let domNode = useClickOutside(() => {
-    setIsSearchOpen(true);
+    setIsSearchMode(true);
   });
+
+  const handleOnSearch = (event) => {
+    const searchInput = event.target.value;
+    //fetch api get search
+    setSearchResults(searchResultsA);
+    setSearchValue(searchInput);
+  };
 
   return (
     <header className={cx('header', className)}>
-      {isSearchOpen ? (
+      {isSearchMode ? (
         <>
-          <Image src={images.Logo} />
+          <Image src={images.Logo} alt='logo' />
           <nav className={cx('header__menu')}>
             {headerMenu.map((item) => (
               <NavLink
@@ -73,7 +116,7 @@ const Header = ({ className }) => {
             <div className={cx('header__actions-button')}>
               <span
                 className={cx('menu-button')}
-                onClick={() => setIsSearchOpen(!isSearchOpen)}
+                onClick={() => setIsSearchMode(false)}
               >
                 {images.search}
               </span>
@@ -99,14 +142,50 @@ const Header = ({ className }) => {
         </>
       ) : (
         <div className={cx('header__search')}>
-          <div className={cx('header__search-content')} ref={domNode}>
-            <input
-              placeholder='Search...'
-              className={cx('header-search__control')}
-              type='text'
-            />
-            <span className={cx('menu-button')}>{images.search}</span>
-          </div>
+          <Tippy
+            interactive={true}
+            visible={!!searchValue}
+            render={(attrs) => (
+              <div
+                className={cx('search-result')}
+                tabIndex='-1'
+                {...attrs}
+                ref={domNode}
+              >
+                <PopperWrapper>
+                  {searchResults.length ? (
+                    searchResults.map((searchItem) => (
+                      <SearchItem
+                        key={searchItem.id}
+                        imageSrc={searchItem.imageSrc}
+                        imageAlt={searchItem.imageAlt}
+                        tittle={searchItem.tittle}
+                        priceTag={searchItem.priceTag}
+                        saleTag={searchItem.saleTag}
+                      />
+                    ))
+                  ) : (
+                    <div className={cx('text-center')}>
+                      <i>Không tìm thấy sản phẩm!</i>
+                    </div>
+                  )}
+                </PopperWrapper>
+              </div>
+            )}
+          >
+            <div className={cx('header__search-content')} ref={domNode}>
+              <input
+                autoFocus={true}
+                placeholder='Search...'
+                className={cx('header-search__control')}
+                type='text'
+                onChange={handleOnSearch}
+                value={searchValue}
+                spellCheck={false}
+              />
+              <span className={cx('menu-button')}>{images.search}</span>
+            </div>
+          </Tippy>
         </div>
       )}
     </header>

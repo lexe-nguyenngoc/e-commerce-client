@@ -87,15 +87,15 @@ const SignIn = () => {
 
       <div className={cx('form__alternative')}>
         <Button className={cx('alter_btn')} variant='outlined'>
-          <Image src={images.google} />
+          <Image src={images.google} alt='google_logo' />
           Google
         </Button>
         <Button className={cx('alter_btn')} variant='outlined'>
-          <Image src={images.facebook} />
+          <Image src={images.facebook} alt='facebook_logo' />
           Facebook
         </Button>
         <Button className={cx('alter_btn')} variant='outlined'>
-          <Image src={images.apple} />
+          <Image src={images.apple} alt='apple_logo' />
           Apple
         </Button>
       </div>

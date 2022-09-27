@@ -91,11 +91,11 @@ const SignUp = () => {
 
       <div className={cx('form__alternative')}>
         <Button className={cx('alter_btn')} variant='outlined'>
-          <Image src={images.google} />
+          <Image src={images.google} alt='google_logo' />
           Google
         </Button>
         <Button className={cx('alter_btn')} variant='outlined'>
-          <Image src={images.facebook} />
+          <Image src={images.facebook} alt='google_logo' />
           Facebook
         </Button>
       </div>
